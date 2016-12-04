@@ -1,0 +1,26 @@
+
+
+Di seguito le specifiche delle tabelle da creare in mysql a cui il programma fa riferimento.
+
+
+
+Schema: rubrica
+
+
+Table: persone
+
+Columns:
+	cf varchar(45) PK 
+	nome varchar(45) 
+	cognome varchar(45) 
+	indirizzo varchar(45) 
+	telefono varchar(45) 
+	eta int(11)
+	
+	
+Table: utenti
+
+Columns:
+	Id varchar(45) PK 
+	Username varchar(45) 
+	Password varchar(45)
