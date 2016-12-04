@@ -30,23 +30,27 @@ import rubrica.logica.Rubrica;
 public class Editor_Persona extends JFrame{
 
 	private JPanel panel;
-	private JTextField field1, field2, field3, field4, field5;
+	private JTextField field1, field2, field3, field4, field5, field6;
 	private JButton b1, b2;
 	static int posizione;
-	static JLabel l;
+	static JLabel l, lcf;
 	private Rubrica r;
 	private JTable table;
+	private Persona p;
 
 	public Editor_Persona (Rubrica r, JTable table){
 		this.r = r;
 		this.table=table;
 		this.setTitle("Editor Persona");
+		field6 = new JTextField();
 		field1 = new JTextField();
 		field2 = new JTextField();
 		field3 = new JTextField();
 		field4 = new JTextField();
 		field5 = new JTextField();
 		this.panel= new JPanel(new GridLayout(6, 2));
+		panel.add(new JLabel("CodFiscale:"));
+		panel.add(field6);
 		panel.add(new JLabel("Nome:"));
 		panel.add(field1);
 		panel.add(new JLabel("Cognome:"));
@@ -99,6 +103,7 @@ public class Editor_Persona extends JFrame{
 
 	public Editor_Persona (Rubrica r, JTable table, Persona p, int pos){
 		this.r = r;
+		this.p=p;
 		this.table=table;
 		this.setTitle("Editor Persona");
 		posizione = pos;
@@ -108,6 +113,9 @@ public class Editor_Persona extends JFrame{
 		field4 = new JTextField(p.getTelefono());
 		field5 = new JTextField(""+p.getEta());
 		this.panel= new JPanel(new GridLayout(6, 2));
+		lcf =new JLabel("CodFiscale: "+p.getCodFiscale());
+		panel.add(lcf);
+		//lcf.getText();
 		panel.add(new JLabel("Nome:"));
 		panel.add(field1);
 		panel.add(new JLabel("Cognome:"));
@@ -169,9 +177,11 @@ public class Editor_Persona extends JFrame{
 				String indirizzo = (field3.getText());
 				String telefono = (field4.getText());
 				String eta = (field5.getText());
+				String cf = (field6.getText());
 				ConvalidaDati cd = new ConvalidaDati();
-				boolean err = cd.convalida(nome, cognome, indirizzo, telefono, eta);
+				boolean err = cd.convalida(cf, nome, cognome, indirizzo, telefono, eta);
 				if (!err){
+					p.setCodFiscale(field6.getText());
 				p.setNome(field1.getText());
 				p.setCognome(field2.getText());
 				p.setEta(Integer.parseInt(field5.getText()));
@@ -194,7 +204,7 @@ public class Editor_Persona extends JFrame{
 				ConvalidaDati cd = new ConvalidaDati();
 				boolean err = cd.convalida(field1.getText(), field2.getText(), field3.getText(), field4.getText(), field5.getText());
 				if (!err){
-					Persona p = new Persona();
+					//Persona p = new Persona();
 					p.setNome(field1.getText());
 					p.setCognome(field2.getText());
 					p.setEta(Integer.parseInt(field5.getText()));

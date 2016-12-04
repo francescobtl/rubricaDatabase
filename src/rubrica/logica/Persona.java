@@ -1,6 +1,7 @@
 package rubrica.logica;
 
 public class Persona {
+	private String codFiscale;
 	private String nome;
 	private String cognome;
 	private String indirizzo;
@@ -11,14 +12,24 @@ public class Persona {
 		
 	}
 
-	public Persona(String nome, String cognome, String indirizzo, String telefono, int eta) {
-		super();
+	public Persona(String codFiscale, String nome, String cognome, String indirizzo, String telefono, int eta) {
+		this.codFiscale = codFiscale;
 		this.nome = nome;
 		this.cognome = cognome;
 		this.indirizzo = indirizzo;
 		this.telefono = telefono;
 		this.eta = eta;
 	}
+	
+
+	public String getCodFiscale() {
+		return this.codFiscale;
+	}
+
+	public void setCodFiscale(String codFiscale) {
+		this.codFiscale = codFiscale;
+	}
+
 	public String getNome() {
 		return nome;
 	}

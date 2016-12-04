@@ -32,9 +32,9 @@ public class Grafica extends JFrame {
 	private JTable table;
 	private JToolBar tools;
 
-	public Grafica(){
+	public Grafica( Rubrica r){
 		this.setTitle("Gestore Rubrica");
-		this.r= new Rubrica();
+		this.r= r;
 		frame = new JFrame();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Object rowData[][] = new Object [r.getVoci().size()] [3];
@@ -54,9 +54,7 @@ public class Grafica extends JFrame {
 		bm = new JButton();
 		be = new JButton();
 		tools = new JToolBar();
-		tools.add(bn);
-		tools.add(bm);
-		tools.add(be);
+		
 		
 		try {
 			ImageIcon image1 = new ImageIcon(ImageIO.read(new URL("https://www.bignerdranch.com/img/blog/2014/07/Button-2.png")));
@@ -70,10 +68,19 @@ public class Grafica extends JFrame {
 		    be.setIcon(new ImageIcon( newimg3 ));
 		  } catch (Exception ex) {
 			  //ex.printStackTrace();
+			  System.out.println("can't get images");
 			  bn = new JButton("Nuovo");
 			  bm = new JButton("Modifica");
 			  be = new JButton("Elimina");
-		  }
+		  } 
+		
+//		bn = new JButton("Nuovo");
+//		bm = new JButton("Modifica");
+//		be = new JButton("Elimina");
+		
+		tools.add(bn);
+		tools.add(bm);
+		tools.add(be);
 	
 		bn.setActionCommand("aggiungi");
 		bm.setActionCommand("modifica");
