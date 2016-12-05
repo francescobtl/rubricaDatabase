@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -19,6 +20,8 @@ import javax.swing.JTextField;
 import javax.swing.JToolBar;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.TitledBorder;
 import javax.swing.table.DefaultTableModel;
 
 import rubrica.logica.ConvalidaDati;
@@ -112,9 +115,14 @@ public class Editor_Persona extends JFrame{
 		field3 = new JTextField(p.getIndirizzo());
 		field4 = new JTextField(p.getTelefono());
 		field5 = new JTextField(""+p.getEta());
+		
+//		JPanel panel2 = new JPanel();
+//		
+//		lcf =new JLabel("CodFiscale: "+p.getCodFiscale());
+//		panel2.add(lcf);
+		
 		this.panel= new JPanel(new GridLayout(6, 2));
-		lcf =new JLabel("CodFiscale: "+p.getCodFiscale());
-		panel.add(lcf);
+		
 		//lcf.getText();
 		panel.add(new JLabel("Nome:"));
 		panel.add(field1);
@@ -133,10 +141,8 @@ public class Editor_Persona extends JFrame{
 		try {
 			ImageIcon image1 = new ImageIcon(ImageIO.read(new URL("https://www.bignerdranch.com/img/blog/2014/07/Button-2.png")));
 			ImageIcon image3 = new ImageIcon(ImageIO.read(new URL("https://image.freepik.com/free-icon/delete-button_318-27987.jpg")));
-			System.out.println(image1);
 			Image newimg1 = image1.getImage().getScaledInstance( 25, 25,  java.awt.Image.SCALE_SMOOTH ) ;
 			Image newimg3 = image3.getImage().getScaledInstance( 25, 25,  java.awt.Image.SCALE_SMOOTH ) ;
-		    System.out.println(newimg1);
 			b1.setIcon(new ImageIcon( newimg1 ));
 		    b2.setIcon(new ImageIcon( newimg3 ));
 		  } catch (Exception ex) {
@@ -156,6 +162,11 @@ public class Editor_Persona extends JFrame{
 		
 		Border empty = new EmptyBorder(20, 20, 20, 20);
 		panel.setBorder(empty);
+		//add(panel2, BorderLayout.NORTH);
+		
+		 Border lowerEtched = BorderFactory.createEtchedBorder(EtchedBorder.LOWERED);
+	     TitledBorder title = BorderFactory.createTitledBorder(lowerEtched, "CodFiscale: "+p.getCodFiscale());
+	     panel.setBorder( title );
 		
 		add(panel, BorderLayout.CENTER);
 		add("North", tools);

@@ -68,7 +68,7 @@ public class Grafica extends JFrame {
 		    be.setIcon(new ImageIcon( newimg3 ));
 		  } catch (Exception ex) {
 			  //ex.printStackTrace();
-			  System.out.println("can't get images");
+			  //System.out.println("can't get images");
 			  bn = new JButton("Nuovo");
 			  bm = new JButton("Modifica");
 			  be = new JButton("Elimina");

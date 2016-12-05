@@ -55,7 +55,6 @@ public class Rubrica {
 	public boolean login (String us, String pw){
 		gd = new GestoreDB();
 		for (Utente u : this.utenti){
-			System.out.println(u.toString());
 			if ((u.getUsername().equals(us))&&u.getPassword().equals(pw)) return true;
 		}
 		return false;

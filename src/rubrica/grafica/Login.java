@@ -14,7 +14,6 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.EmptyBorder;
 
-import rubrica.logica.Persona;
 import rubrica.logica.Rubrica;
 
 
@@ -39,8 +38,7 @@ public class Login extends JFrame{
 		panel.add(f1);
 		panel.add(l2);
 		panel.add(f2);
-		//Border e = new EmptyBorder(20, 0, 0, 0);
-		//b.setBorder(e);
+
 		panel.add(b);
 		b.setActionCommand("login");
 		b.addActionListener(new Listener());
@@ -57,7 +55,6 @@ public class Login extends JFrame{
 		public void actionPerformed(ActionEvent e){  
 			String command = e.getActionCommand();  
 			if( command.equals( "login" ))  {
-				//Persona p = new Persona();
 				String un = (f1.getText());
 				String pw = (f2.getText());
 				r= new Rubrica();
